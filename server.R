@@ -12,7 +12,7 @@ library(syuzhet)
 
 pageRef <- read_html("https://www.gutenberg.org/files/54360/54360-0.txt")
 
-buildCloud <- function() {
+buildCloud <- function() { 
   print("Bacon")
   text <- html_text(pageRef)
   sentences <- get_sentences(text)
