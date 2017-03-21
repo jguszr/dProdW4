@@ -7,23 +7,22 @@
 
 library(shiny)
 
-shinyUI(fluidPage(
+shinyUI(navbarPage("Gutemberg Book Analisys Example",
 
-  # Application title
-  titlePanel("Gutemberg Book Analisys Example"),
+    tabPanel("Analisys", 
+      sidebarPanel(
+        titlePanel("book url"),
+        textInput("urlId",label = "Book URL for analisys",value = "https://www.gutenberg.org/files/54360/54360-0.txt"),
+        actionButton("goBtn","Go!")
+      ),
 
-  # Sidebar with a slider input for number of bins
-  sidebarLayout(
-    sidebarPanel(
-      titlePanel("Configure Your Sentiment Analysis"),
-      textInput("urlId",label = "Book URL for analisys",value = "https://www.gutenberg.org/files/54360/54360-0.txt"),
-      actionButton("goBtn","Go!")
-    ),
-
-    # Show a plot of the generated distribution
-    mainPanel(
-      h4("Please, Wait, It might take a couple minutes to process the book"),
-      plotOutput("distPlot")
+      mainPanel(
+        h4("Please, Wait, It might take a couple minutes to process the book"),
+        plotOutput("distPlot")
+      )),
+    tabPanel("About",
+             mainPanel(
+               includeMarkdown("include.md")
     )
   )
 ))
