@@ -17,11 +17,7 @@ shinyUI(fluidPage(
     sidebarPanel(
       titlePanel("Configure Your Sentiment Analysis"),
       textInput("urlId",label = "Book URL for analisys",value = "https://www.gutenberg.org/files/54360/54360-0.txt"),
-      sliderInput("bins",
-                  "Number of bins:",
-                  min = 1,
-                  max = 50,
-                  value = 30)
+      actionButton("goBtn","Go!")
     ),
 
     # Show a plot of the generated distribution
