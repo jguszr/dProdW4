@@ -18,7 +18,8 @@ shinyUI(navbarPage("Gutemberg Book Analisys Example",
 
       mainPanel(
         h4("Please, Wait, It might take a couple minutes to process the book"),
-        plotOutput("distPlot")
+        plotOutput("distPlot"),
+        textOutput("msg")
       )),
     tabPanel("About",
              mainPanel(

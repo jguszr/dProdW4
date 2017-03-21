@@ -20,6 +20,12 @@ buildCloud <- function(pageRef) {
 }
 
 shinyServer(function(input, output) {
+  output$msg <-reactive({
+    
+      ifelse(grep("www.gutemberg.org",input$urlId), renderText(""),renderText({"Not a valid URL !" }))
+    
+  }) 
+  
   observeEvent(input$goBtn, {
     output$distPlot <- renderPlot({
       plot(
