@@ -22,6 +22,7 @@ shinyUI(fluidPage(
 
     # Show a plot of the generated distribution
     mainPanel(
+      h4("Please, Wait, It might take a couple minutes to process the book"),
       plotOutput("distPlot")
     )
   )

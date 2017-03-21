@@ -29,6 +29,7 @@ shinyServer(function(input, output) {
         xlab = "Narrative Time", 
         ylab= "Emotional Valence"
       )
+
     })
     
   }
