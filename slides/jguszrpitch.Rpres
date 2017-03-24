@@ -11,10 +11,10 @@ The App concept is to experiment a Shiny App with R Studio
 using some data to process something.
 
 Based on it, I decided to use the Project Gutemberg as a data source.
-To do So, I tried at first to use the *rVest* package to download and process the HTML into a plain text file.
+To do So, I tried at first to use the *rVest* package to access and process each book into a plain text file.
 
 Due SSL Limitations on the Shinny.io enviroment I download a few books
-and use it as a data source.
+and use it as a data source, which as also a valid experiment, in order to understand how a shiny app handles access to files (a constat concern on web development enviroments)
 
 
 The Concept
@@ -23,9 +23,33 @@ The Concept
 The Key Point is to select one Book, our load a new book from www.gutemberg.org
 and them using the syhuzet R packge extrat the "tone"/"emotional" variance thru the book time line. 
 
-Slide With Plot
+
+The Data
+========================================================
+Here is some exemples of the books used to accomplish this task. Its basically a text file encoded on UTF-8
+
+```{r}
+  pageRef<- "../data/1.txt"
+  text <-  readChar(file.path(pageRef), file.info(pageRef)$size)
+  head(text,50)
+```
+
+Expected Result for one Book
 ========================================================
 
 ```{r, echo=FALSE}
-plot(cars)
+library (tm)
+library(syuzhet)
+
+  pageRef<- "../data/1.txt"
+  text <-  readChar(file.path(pageRef), file.info(pageRef)$size)
+  sentences <- get_sentences(text)
+        plot(
+        get_sentiment(sentences), 
+        type="h", 
+        main="Example Plot Trajectory", 
+        xlab = "Narrative Time", 
+        ylab= "Emotional Valence"
+      )
 ```
+

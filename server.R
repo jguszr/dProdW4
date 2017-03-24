@@ -22,7 +22,6 @@ buildCloud <- function(pageRef) {
 shinyServer(function(input, output) {
   
   observeEvent(input$goBtn, {
-    print(input$select)
     output$distPlot <- renderPlot({
       plot(
         buildCloud(input$select), 
