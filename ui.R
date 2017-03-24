@@ -12,8 +12,12 @@ shinyUI(navbarPage("Gutemberg Book Analisys Example",
 
     tabPanel("Analisys", 
       sidebarPanel(
-        titlePanel("book url"),
-        textInput("urlId",label = "Book URL for analisys",value = "https://www.gutenberg.org/files/54360/54360-0.txt"),
+        titlePanel("Select a Book"),
+        selectInput("select", label = h3("Select box"), 
+                    choices = list("Book 1" = "data/1.txt",
+                                   "Book 2" = "data/2.txt",
+                                   "Book 3" = "data/3.txt"),
+                    selected = 1),
         actionButton("goBtn","Go!")
       ),
 

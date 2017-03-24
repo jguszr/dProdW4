@@ -13,23 +13,19 @@ library(syuzhet)
 
 buildCloud <- function(pageRef) { 
   print("Bacon")
-  text <- html_text(read_html(pageRef))
+  text <-  readChar(file.path(pageRef), file.info(pageRef)$size)
   sentences <- get_sentences(text)
   return( get_sentiment(sentences))
   
 }
 
 shinyServer(function(input, output) {
-  output$msg <-reactive({
-    
-      ifelse(grep("www.gutemberg.org",input$urlId), renderText(""),renderText({"Not a valid URL !" }))
-    
-  }) 
   
   observeEvent(input$goBtn, {
+    print(input$select)
     output$distPlot <- renderPlot({
       plot(
-        buildCloud(input$urlId), 
+        buildCloud(input$select), 
         type="h", 
         main="Example Plot Trajectory", 
         xlab = "Narrative Time", 
