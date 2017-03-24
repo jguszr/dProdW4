@@ -2,9 +2,14 @@
 
 This application is based on the Gutemberg project.
 
-There is no Fixed dataset on it. The idea is to use a live TXT utf version of a bug available at the www.gutemberg.org
+The App concept is to experiment a Shiny App with R Studio
+using some data to process something.
 
-So, be patient It Takes some time to fetch and generate the data.
+Based on it, I decided to use the Project Gutemberg as a data source.
+To do So, I tried at first to use the *rVest* package to download and process the HTML into a plain text file.
+
+Due SSL Limitations on the Shinny.io enviroment I download a few books
+and use it as a data source.
 
 Here is some book url examples 
 

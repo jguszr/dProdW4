@@ -23,7 +23,7 @@ The Concept
 The Key Point is to select one Book, our load a new book from www.gutemberg.org
 and them using the syhuzet R packge extrat the "tone"/"emotional" variance thru the book time line. 
 
-Slide With Plot
+The Expected Plot from my App
 ========================================================
 
 ![plot of chunk unnamed-chunk-1](jguszrpitch-figure/unnamed-chunk-1-1.png)
